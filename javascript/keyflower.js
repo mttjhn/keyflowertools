@@ -54,7 +54,10 @@ window.keyflower = {
         if (keyflower.verifyData()) {
             var tileCollection = [];
             _.each(keyflower.data.games, function(el, index) {
-                tileCollection = _.union(tileCollection, el.tiles);
+                if (_.indexOf(includeList, el.id) >= 0)
+                {
+                    tileCollection = _.union(tileCollection, el.tiles);
+                }
             }, this);
             console.log(tileCollection);
             // Tiles from all games combined
@@ -74,10 +77,10 @@ window.keyflower = {
 
             // Sample the appropriate number of tiles from the stacks
             // This should reduce the size
-            thisGame.tiles.home = _.sample(currentGame.tilePool.home, rules.homeCount);
-            thisGame.tiles.spring = _.sample(currentGame.tilePool.spring, rules.springCount);
-            thisGame.tiles.summer = _.sample(currentGame.tilePool.summer, rules.summerCount);
-            thisGame.tiles.autumn = _.sample(currentGame.tilePool.autumn, rules.autumnCount);
+            thisGame.tiles.home = _.sample(thisGame.tilePool.home, rules.homeCount);
+            thisGame.tiles.spring = _.sample(thisGame.tilePool.spring, rules.springCount);
+            thisGame.tiles.summer = _.sample(thisGame.tilePool.summer, rules.summerCount);
+            thisGame.tiles.autumn = _.sample(thisGame.tilePool.autumn, rules.autumnCount);
         }
     },
     loadSettings: function() {

@@ -22,7 +22,10 @@ if (window.keyflower) {
                 ]
             },
             {
-                id: "farmers"
+                id: "farmers",
+                tiles: [
+                    {name: "Farmers Test Tile", type: "spring", categories: []}
+                ]
             },
             {
                 id: "merchants"
