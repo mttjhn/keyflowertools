@@ -1,0 +1,11 @@
+{
+  "name": "keyflowertools",
+  "version": "1.0.0",
+  "description": "A web page to provide handy tools for playing the board game Keyflower.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Johnson",
+  "license": "ISC"
+}
