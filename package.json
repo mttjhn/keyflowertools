@@ -8,5 +8,7 @@
   },
   "author": "Matthew Johnson",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {
+    "underscore": "^1.8.3"
+  }
 }

@@ -3,8 +3,86 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Keyflower Tools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Underscore -->
+    <script src="node_modules/underscore/underscore-min.js"></script>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap Start -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script src="javascript/keyflower.js"></script>
+    <script src="javascript/data.js"></script>
 </head>
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#keyflowertools-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Keyflower Tools</a>
+            </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="keyflowertools-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Game Randomizer<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="panel panel-default" id="settingsPanel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Randomizer Settings</h3>
+            </div>
+            <div class="panel-body">
+                <form id="settingsForm">
+                    <div class="checkbox">
+                        <label>
+                            <input id="includeBaseKeyflower"  type="checkbox" checked> Include Base Keyflower
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input id="includeKeyflowerFarmers" type="checkbox"> Include The Farmers Expansion
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input id="includeKeyflowerMerchants" type="checkbox"> Include The Merchants Expansion
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input id="includeKeyflowerPromos" type="checkbox"> Include Promo Tiles
+                        </label>
+                    </div>
+                    <!-- Button to randomize tiles. NOTE: Hardcoded to 2 players with base game right now
+                    TODO: Allow settings to choose player count and games -->
+                    <button type="submit" class="btn btn-default" onclick="keyflower.randomize(2, ["base"])">Randomize Tiles</button>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default" id="outputPanel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Tile Listing</h3>
+            </div>
+            <div class="panel-body">
+                <div class="well" id="outputWell"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
