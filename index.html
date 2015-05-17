@@ -16,71 +16,144 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="styles.css">
+
     <script src="javascript/keyflower.js"></script>
     <script src="javascript/data.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#keyflowertools-navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Keyflower Tools</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="keyflowertools-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Game Randomizer<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#"></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <div class="container">
-        <div class="panel panel-default" id="settingsPanel">
-            <div class="panel-heading">
-                <h3 class="panel-title">Randomizer Settings</h3>
-            </div>
-            <div class="panel-body">
-                <form id="settingsForm">
-                    <div class="checkbox">
-                        <label>
-                            <input id="includeBaseKeyflower"  type="checkbox" checked> Include Base Keyflower
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input id="includeKeyflowerFarmers" type="checkbox"> Include The Farmers Expansion
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input id="includeKeyflowerMerchants" type="checkbox"> Include The Merchants Expansion
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input id="includeKeyflowerPromos" type="checkbox"> Include Promo Tiles
-                        </label>
-                    </div>
-                    <!-- Button to randomize tiles. NOTE: Hardcoded to 2 players with base game right now
-                    TODO: Allow settings to choose player count and games -->
-                    <button type="submit" class="btn btn-default" onclick="keyflower.randomize(2, ['base', 'farmers'])">Randomize Tiles</button>
-                </form>
-            </div>
+        <h1 class="pull-left">Keyflower Randomizer</h1>
+        <div class="pull-right">
+            <!-- Button to randomize tiles. NOTE: Hardcoded to 2 players with base game right now
+                 TODO: Allow settings to choose player count and games -->
+            <button type="button" class="btn btn-default randomize-button" onclick="keyflower.loadSettingsAndRandomize()">Randomize Tiles</button>
         </div>
-        <div class="panel panel-default" id="outputPanel">
-            <div class="panel-heading">
-                <h3 class="panel-title">Tile Listing</h3>
+        <div class="clearfix"></div>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="settingHeading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#settingsPanel" aria-expanded="true" aria-controls="settingsPanel">
+                            Randomizer Settings
+                        </a>
+                    </h4>
+                </div>
+                <div id="settingsPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="settingHeading">
+                    <div class="panel-body">
+                        <form id="settingsForm">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="includeBaseKeyflower"  type="checkbox" checked> Include Base Keyflower
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="includeKeyflowerFarmers" type="checkbox"> Include The Farmers Expansion
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="includeKeyflowerMerchants" type="checkbox"> Include The Merchants Expansion
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="includeKeyflowerPromos" type="checkbox"> Include Promo Tiles
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-                <div class="well" id="outputWell"></div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="setupHeading">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#setupPanel" aria-expanded="false" aria-controls="setupPanel">
+                            Game Setup
+                        </a>
+                    </h4>
+                </div>
+                <div id="setupPanel" class="panel-collapse collapse" role="tabpanel" aria-labelledby="setupHeading">
+                    <div class="panel-body">
+                        <div class="row output-row">
+                            <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">General Setup Instructions</div>
+                                    <div class="panel-body">
+                                        <div id="component-info"></div>
+                                        <div id="order-info"></div>
+                                        <div id="winter-info"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Home Tiles</div>
+                                    <div class="panel-body" id="home-info">
+                                        <em>Home tiles below chosen randomly, with start player noted:</em>
+                                    </div>
+                                    <ul class="list-group" id="home-list">
+                                        <li class="list-group-item">
+                                            <span class="badge">Player 2</span>
+                                            Home 1
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="badge">Player 1</span>
+                                            Home 4
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row output-row">
+                            <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Boat Tiles</div>
+                                    <div class="panel-body" id="boat-info">
+                                        <em>Use the following boats in your setup of the game:</em>
+                                    </div>
+                                    <ul class="list-group" id="boat-list">
+                                        <li class="list-group-item">Keyflower</li>
+                                        <li class="list-group-item">Sea Bastion</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Spring Tiles</div>
+                                    <div class="panel-body" id="spring-info">
+                                        <!-- Put content for spring tiles listing here! -->
+                                    </div>
+                                    <ul class="list-group" id="spring-list">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Summer Tiles</div>
+                                    <div class="panel-body" id="summer-info">
+                                        <!-- Put content for summer tiles listing here! -->
+                                    </div>
+                                    <ul class="list-group" id="summer-list">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Autumn Tiles</div>
+                                    <div class="panel-body" id="autumn-info">
+                                        <!-- Put content for autumn tiles listing here! -->
+                                    </div>
+                                    <ul class="list-group" id="autumn-list">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
