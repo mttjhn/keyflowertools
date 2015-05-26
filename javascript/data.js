@@ -76,9 +76,18 @@ if (window.keyflower) {
             playerCounts: [
                 {
                     number: 2,
-                    homeCount: 2,
                     boats: [1, 2],
                     orderTileInstructions: "Use the turn order tile marked 2+ only.",
+                    componentInstructions: "Put blue/red/yellow workers in the bag, green workers in a pile. Sort resource counters, turn skill tiles face-down. Each player draws <strong>eight</strong> workers at random, secretly.",
+                    springCount: 6,
+                    summerCount: 6,
+                    autumnCount: 6,
+                    winterCount: 3
+                },
+                {
+                    number: 3,
+                    boats: [1, 2, 3],
+                    orderTileInstructions: "Use the turn order tile marked 2+ and 3+.",
                     componentInstructions: "Put blue/red/yellow workers in the bag, green workers in a pile. Sort resource counters, turn skill tiles face-down. Each player draws <strong>eight</strong> workers at random, secretly.",
                     springCount: 6,
                     summerCount: 6,

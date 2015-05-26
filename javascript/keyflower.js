@@ -83,7 +83,7 @@ window.keyflower = {
 
             // Sample the appropriate number of tiles from the stacks
             // This should reduce the size
-            thisGame.tiles.home = _.sample(thisGame.tilePool.home, rules.homeCount);
+            thisGame.tiles.home = _.sample(thisGame.tilePool.home, rules.number);
             // Assign each home tile to a player
             _.each(thisGame.tiles.home, function (el) {
                 el.player = "Player " + tempPlayerCount;
@@ -125,27 +125,18 @@ window.keyflower = {
         var expansions = [];
         var playerCount = 2;
         // Load settings
-        var baseGame = $("#includeBaseKeyflower");
-        var farmersGame = $("#includeKeyflowerFarmers");
-        var merchantsGame = $("#includeKeyflowerMerchants");
-        var promoTiles = $("#includeKeyflowerPromos");
-        var playerCountElement = $("#playerCount");
+        var includeGames = $("#criteriaIncludeGames");
+        var playerCountElement = $("#criteriaPlayerCount");
 
-        if (baseGame && baseGame.checked) {
-            expansions.push("base");
+        if (includeGames && includeGames.val()) {
+            expansions = includeGames.val();
         }
-        if (farmersGame && farmersGame.checked) {
-            expansions.push("farmers");
+
+        if (playerCountElement && playerCountElement.val()) {
+            playerCount = parseInt(playerCountElement.val());
         }
-        if (merchantsGame && merchantsGame.checked) {
-            expansions.push("merchants");
-        }
-        if (promoTiles && promoTiles.checked) {
-            expansions.push("promos");
-        }
-        if (playerCountElement && playerCountElement.value) {
-            playerCount = playerCountElement.value;
-        }
+
+        console.log(expansions);
 
         keyflower.randomize(playerCount, expansions);
     },

@@ -41,26 +41,34 @@
                 </div>
                 <div id="settingsPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="settingHeading">
                     <div class="panel-body">
-                        <form id="settingsForm">
-                            <div class="checkbox">
-                                <label>
-                                    <input id="includeBaseKeyflower"  type="checkbox" checked> Include Base Keyflower
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input id="includeKeyflowerFarmers" type="checkbox"> Include The Farmers Expansion
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input id="includeKeyflowerMerchants" type="checkbox"> Include The Merchants Expansion
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input id="includeKeyflowerPromos" type="checkbox"> Include Promo Tiles
-                                </label>
+                        <form id="expansionsForm">
+                            <div class="row output-row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="criteriaIncludeGames">Games To Include</label>
+                                        <select id="criteriaIncludeGames" multiple class="form-control" size="6">
+                                            <option value="base" selected>Base Keyflower</option>
+                                            <option value="farmers">The Farmers Expansion</option>
+                                            <option value="merchants">The Merchants Expansion</option>
+                                            <option value="promo-storyteller">Promo: The Storyteller</option>
+                                            <option value="promo-beekeeper">Promo: The Beekeeper</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="criteriaPlayerCount">Player Count</label>
+                                        <select id="criteriaPlayerCount" class="form-control">
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
                             </div>
                         </form>
                     </div>
