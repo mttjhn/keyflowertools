@@ -53,11 +53,16 @@ window.keyflower = {
     randomize: function (playerCount, includeList) {
         if (keyflower.verifyData()) {
             var tileCollection = [];
+            var otherNotes = [];
             // Combine tiles from all games in includeList
             _.each(keyflower.data.games, function(el, index) {
                 if (_.indexOf(includeList, el.id) >= 0)
                 {
                     tileCollection = _.union(tileCollection, el.tiles);
+                    if (!_.isUndefined(el.notes) && !_.isNull(el.notes) && el.notes.trim().length !== 0) {
+                        console.log(el.notes);
+                        otherNotes.push(el.notes);
+                    }
                 }
             }, this);
 
@@ -132,6 +137,9 @@ window.keyflower = {
             keyflower.renderInfo("component-info", "<strong>Component Info: </strong>" + rules.componentInstructions);
             keyflower.renderInfo("order-info", "<strong>Turn Order Tiles: </strong>" + rules.orderTileInstructions);
             keyflower.renderInfo("winter-info", "<strong>Winter Tiles: </strong>Shuffle all winter tiles face down, select " + (rules.winterCount * rules.number) + " tiles, and deal " + rules.winterCount + " to each player.");
+            if (otherNotes.length > 0) {
+                keyflower.renderInfo("notes-info", "<strong>Other Notes: </strong>" + keyflower.arrayToString(otherNotes));
+            }
 
             // Start with home tiles...
             keyflower.renderInfo("home-info", "Use the following home tiles for this game:");
@@ -217,5 +225,12 @@ window.keyflower = {
             htmlElement.innerHTML = templateItem({infoText: text});
 
         }
+    },
+    arrayToString: function(array) {
+        var newString = "";
+        _.each(array, function (el) {
+            newString = newString + " " + el.toString();
+        }, this);
+        return newString;
     }
 };

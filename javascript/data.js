@@ -53,13 +53,26 @@ if (window.keyflower) {
                     { name: "Home 4", type: "home", categories: ["transportation"]},
                     { name: "Home 5", type: "home", categories: ["transportation"]},
                     { name: "Home 6", type: "home", categories: ["transportation"]}
-                ]
+                ],
+                notes: ""
             },
             {
                 id: "farmers",
                 tiles: [
-                    {name: "Farmers Test Tile", type: "spring", categories: []}
-                ]
+                    {name: "Farm Yard", type: "spring", categories: []},
+                    {name: "Paddock", type: "spring", categories: []},
+                    {name: "Sheep Fold", type: "spring", categories: []},
+                    {name: "Wheat Field", type: "spring", categories: []},
+                    {name: "Boat 5", type: "summer", options: ["a", "b"], categories: []},
+                    {name: "Boat 6", type: "summer", options: ["a", "b"], categories: []},
+                    {name: "Shepherd's Hut", type: "summer", categories: []},
+                    {name: "Pigsty", type: "summer", categories: []},
+                    {name: "Cow Shed", type: "autumn", categories: []},
+                    {name: "Piggery", type: "autumn", categories: []},
+                    {name: "Ranch", type: "autumn", categories: []},
+                    {name: "Sheep Shelter", type: "autumn", categories: []}
+                ],
+                notes: "Replace turn order tiles 1-3 from the base game with new turn order tiles from The Farmers expansion."
             },
             {
                 id: "merchants"
