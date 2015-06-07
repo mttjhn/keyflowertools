@@ -46,13 +46,26 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="criteriaIncludeGames">Games To Include</label>
-                                        <select id="criteriaIncludeGames" multiple class="form-control" size="6">
-                                            <option value="base" selected>Base Keyflower</option>
-                                            <option value="farmers">The Farmers Expansion</option>
-                                            <option value="merchants">The Merchants Expansion</option>
-                                            <option value="promo-storyteller">Promo: The Storyteller</option>
-                                            <option value="promo-beekeeper">Promo: The Beekeeper</option>
-                                        </select>
+                                        <div class="container" id="criteriaIncludeGames">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="criteriaIncludeBase" type="checkbox" value="" checked>
+                                                    Base Keyflower
+                                                </label>
+                                            </div>
+                                            <div class="checkbox disabled">
+                                                <label>
+                                                    <input id="criteriaIncludeFarmers" type="checkbox" value="" disabled>
+                                                    The Farmers Expansion
+                                                </label>
+                                            </div>
+                                            <div class="checkbox disabled">
+                                                <label>
+                                                    <input id="criteriaIncludeMerchants" type="checkbox" value="" disabled>
+                                                    The Merchants Expansion
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="criteriaPlayerCount">Player Count</label>
@@ -85,7 +98,7 @@
                 <div id="setupPanel" class="panel-collapse collapse" role="tabpanel" aria-labelledby="setupHeading">
                     <div class="panel-body">
                         <div class="row output-row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">General Setup Instructions</div>
                                     <div class="panel-body">
@@ -95,6 +108,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row output-row">
                             <div class="col-md-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Home Tiles</div>
@@ -113,8 +128,6 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row output-row">
                             <div class="col-md-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Boat Tiles</div>
@@ -127,6 +140,8 @@
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row output-row">
                             <div class="col-md-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Spring Tiles</div>
@@ -137,8 +152,6 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Summer Tiles</div>
@@ -149,6 +162,8 @@
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Autumn Tiles</div>
